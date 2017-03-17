@@ -2,6 +2,8 @@ import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.boot.context.web.*;
 import org.springframework.context.annotation.*;
+import javax.annotation.PostConstruct;
+import java.util.TimeZone;
 /**
  * Classe responsável iniciar a aplicação, por padrão ela executará as seguintes etapas:
  *  - Criar uma instância do ApplicationContext;
@@ -18,5 +20,10 @@ public class SpringBootMain extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootMain.class, args);
     }
+    
+  @PostConstruct
+  void started() {
+    TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+  }
 
 }
