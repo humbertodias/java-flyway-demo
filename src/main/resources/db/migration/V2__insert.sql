@@ -7,3 +7,6 @@ insert into person
 (id,name)
 values
 (2,'Rodrigo');
+
+
+commit;
