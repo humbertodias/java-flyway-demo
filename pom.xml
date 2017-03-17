@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
@@ -17,6 +16,9 @@
     <build>
         <resources>
             <resource>
+                <directory>src/main/java</directory>
+            </resource>
+            <resource>
                 <directory>src/main/resources</directory>
             </resource>
             <resource>
@@ -28,32 +30,8 @@
                     <exclude>**/*.java</exclude>
                 </excludes>
             </resource>
-            <resource>
-                <directory>src/main/java</directory>
-            </resource>
         </resources>
         <plugins>
-            <plugin>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>4.1.2</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>5.1.27</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <url>jdbc:mysql://us-cdbr-iron-east-03.cleardb.net</url>
-                    <driver>com.mysql.jdbc.Driver</driver>
-                    <user>b783eb8d5906bb</user>
-                    <password>4411c342</password>
-                    <schemas>
-                        <schema>ad_23f3e89713f6395</schema>
-                    </schemas>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -74,8 +52,13 @@
             </plugin>
         </plugins>
     </build>
-
-
+    <repositories>
+        <repository>
+            <id>codelds</id>
+            <name>oracle</name>
+            <url>https://code.lds.org/nexus/content/groups/main-repo</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
@@ -174,50 +157,24 @@
             <version>2.8.0</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.35</version>
-        </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.oracle</groupId>-->
-            <!--<artifactId>ojdbc7</artifactId>-->
-            <!--<version>12.1.0.2</version>-->
-        <!--</dependency>-->
-
-
-
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.4</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
-        <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
             <version>4.1.2</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc7</artifactId>
+            <version>12.1.0.2</version>
+        </dependency>
     </dependencies>
-
-
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>artifactory.cronapp.ext-release-local</name>
-            <url>https://artifactory.cronapp.io/ext-release-local</url>
-        </repository>
-    </repositories>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <project.cronospass.resource mimetype="folder/src">src/main/resources</project.cronospass.resource>
-        <project.cronospass.resource mimetype="folder/src">src/test/java</project.cronospass.resource>
-        <project.cronospass.resource mimetype="folder/libs">lib</project.cronospass.resource>
         <project.cronospass.resource mimetype="folder/src">src/main/java</project.cronospass.resource>
+        <project.cronospass.resource mimetype="folder/src">src/main/resources</project.cronospass.resource>
         <project.cronospass.resource mimetype="folder/web">src/main/webapp</project.cronospass.resource>
         <project.cronospass.resource mimetype="folder/servercontext">config</project.cronospass.resource>
+        <project.cronospass.resource mimetype="folder/libs">lib</project.cronospass.resource>
+        <project.cronospass.resource mimetype="folder/src">src/test/java</project.cronospass.resource>
     </properties>
 </project>
