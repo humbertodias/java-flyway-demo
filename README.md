@@ -2,6 +2,9 @@
 
 Aplicação Web com Spring e módulos: **Data** e **Security**.
 
+
+[Documentação](doc/ide-template-flyway.pdf)
+
 ## Prérequisitos
 
 1. Maven 3+
