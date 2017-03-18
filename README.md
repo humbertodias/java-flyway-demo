@@ -9,7 +9,6 @@ Que migra os scripts de **/db/migration** para o banco de dados Oracle.
 	
 	**src/main/resources/application.properties** 	**src/main/java/META-INF/persistence.xml**
 
-[Documentação](doc/ide-template-flyway.pdf), [Demonstração](doc/demo.mp4)
 
 ## Prérequisitos
 
@@ -34,9 +33,12 @@ mvn spring-boot:run -Dserver.port=8080
 
 6. Confira no banco de dados se a tabela **PERSON** foi criada.
 
-## Documentação
+## Demonstração
 
-![Documentação](doc/ide-template-flyway.pdf)
+[Documentação](doc/ide-template-flyway.pdf), [Demo MP4](doc/demo.mp4)
+
+
+![Demostração](doc/demo.gif)
 
 
 
